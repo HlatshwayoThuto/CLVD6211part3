@@ -1,0 +1,79 @@
+﻿@model IEnumerable<EventEaseApp.Models.Venue>
+
+@{
+    ViewData["Title"] = "Venue Information";
+}
+
+<h1>Index</h1>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Locations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+
+            <!--Step 7-->
+            <th>
+                Venue Image
+
+                <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VenueName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Locations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+
+                <!--this is also part of step 7-->
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="Venue Image" width="100" height="100" style="object-fit:cover" ; broder-radius:8px;" />
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+            </td>
+
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VenueID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VenueID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VenueID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

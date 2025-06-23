@@ -1,0 +1,113 @@
+﻿@model IEnumerable<EventEaseApp.Models.Events>
+
+@{
+    ViewData["Title"] = "Events Information";
+}
+
+<h1>Index</h1>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type ="button" class=" btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<!-- Inserted filter form for Part 3 Question (Step 7): Advanced Filtering -->
+<form method="get" class="mb-4">
+    <div class="row">
+        <div class="col-md-3">
+            <label>Event Type</label>
+            <select name="searchType" class="form-control">
+                <option value="">-- All Types --</option>
+                @foreach (var type in (List<EventEaseApp.Models.EventType>)ViewData["EventType"])
+                {
+                    <option value="@type.Name">@type.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label>Venue</label>
+            <select name="venueId" class="form-control">
+                <option value="">-- All Venues --</option>
+                @foreach (var venue in (List<EventEaseApp.Models.Venue>)ViewData["Venues"])
+                {
+                    <option value="@venue.VenueID">@venue.Locations</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label>Start Date</label>
+            <input type="date" name="startDate" class="form-control" value="@ViewData["StartDate"]" />
+        </div>
+
+        <div class="col-md-3">
+            <label>End Date</label>
+            <input type="date" name="endDate" class="form-control" value="@ViewData["EndDate"]" />
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="/EventS/Index" class="btn btn-secondary ml-2">Clear</a>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descriptions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue)
+            </th>
+            <th></th>
+        </tr>
+
+
+
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriptions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue.Locations)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EventID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EventID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EventID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

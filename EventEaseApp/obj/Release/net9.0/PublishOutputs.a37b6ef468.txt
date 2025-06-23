@@ -1,0 +1,7 @@
+C:\Users\lab_services_student\Desktop\assignment 1\EventEaseApp\obj\Release\net9.0\PubTmp\Out\EventEaseApp.exe
+C:\Users\lab_services_student\Desktop\assignment 1\EventEaseApp\obj\Release\net9.0\PubTmp\Out\appsettings.Development.json
+C:\Users\lab_services_student\Desktop\assignment 1\EventEaseApp\obj\Release\net9.0\PubTmp\Out\appsettings.json
+C:\Users\lab_services_student\Desktop\assignment 1\EventEaseApp\obj\Release\net9.0\PubTmp\Out\EventEaseApp.dll
+C:\Users\lab_services_student\Desktop\assignment 1\EventEaseApp\obj\Release\net9.0\PubTmp\Out\EventEaseApp.deps.json
+C:\Users\lab_services_student\Desktop\assignment 1\EventEaseApp\obj\Release\net9.0\PubTmp\Out\EventEaseApp.runtimeconfig.json
+C:\Users\lab_services_student\Desktop\assignment 1\EventEaseApp\obj\Release\net9.0\PubTmp\Out\EventEaseApp.pdb
