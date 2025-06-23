@@ -179,8 +179,8 @@ public async Task<IActionResult> DeleteConfirmed(int id)
 
         private async Task<string> UploadImageToBlobAsync(IFormFile imageFile)
         {
-            var connectionString = "DefaultEndpointsProtocol=https;AccountName=practiceimg;AccountKey=z6V4vTv1NpstjAzU+u/IxtcWiKg2hb4BJZgB7/Q/wyfNdztTq5AKCa26/WBvejTdF82gYomgjuh2+AStuNP6Yw==;EndpointSuffix=core.windows.net";
-            var containerName = "part2";
+            var connectionString = "DefaultEndpointsProtocol=https;AccountName=eventblob;AccountKey=j3m6/U3lUCSrWcQsMBTfxIYgfyh/c5EqGD6Byyv+Yl3NuIukCl5guFh2OqIcqPqRHua7cCX+8FHa+AStOeFSJQ==;EndpointSuffix=core.windows.net";
+            var containerName = "blob";
 
             var blobServiceClient = new BlobServiceClient(connectionString);
             var containerClient = blobServiceClient.GetBlobContainerClient(containerName);
